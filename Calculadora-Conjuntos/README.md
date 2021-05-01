@@ -4,7 +4,7 @@ Calculadora de Conjuntos
 Se trata de una simple calculadora de conjuntos hecha en python que te permite hacer operaciones basicas en conjuntos como lo pueden ser.
 </p>
 
-|      'Operacion'    |   'Comando'    |
+|      `Operacion`    |   `Comando`    |
 |:--------------------|:---------------|
 | `Cardinalidad`      | `card`		   |
 | `Union`             | `uni`		   |
