@@ -6,13 +6,13 @@ Se trata de una simple calculadora de conjuntos hecha en python que te permite h
 
 |       Operacion     |
 |:--------------------|
-| 'Cardinalidad'      |
-| 'Union'             |
-| 'Interseccion'	  |
-| 'Diferencia'        |
-| 'Producto punto'    |
-| 'Potencia'          |
+| `Cardinalidad`      |
+| `Union`             |
+| `Interseccion`	  |
+| `Diferencia`        |
+| `Producto punto`    |
+| `Potencia`          |
 
 # Instalacion 
-1. Clonar el repositorio ''' git clonehttps://github.com/JosepHyv/Universidad-Veracruzana/tree/main/Calculadora-Conjuntos '''
+1. Clonar el repositorio ```git clonehttps://github.com/JosepHyv/Universidad-Veracruzana/tree/main/Calculadora-Conjuntos ```
 
