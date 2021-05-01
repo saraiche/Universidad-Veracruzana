@@ -38,7 +38,7 @@ chmod a+x install.sh
 <p align="justify">
 <b> Para windows </b> 
 </p>
-1. Descargar el ejecutable en [aqui]("http://www.google.com").
+1. Descargar el ejecutable en ![aqui]("http://www.google.com").
 
 
 
