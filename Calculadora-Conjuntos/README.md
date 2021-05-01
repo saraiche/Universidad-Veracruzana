@@ -14,7 +14,7 @@ Se trata de una simple calculadora de conjuntos hecha en python que te permite h
 | `Potencia`          | `pot`		   |
 
 # Instalacion 
-<p align="Center"> 
+<p align="justify"> 
 para sistemas Linux y Mac 
 </p>
 
