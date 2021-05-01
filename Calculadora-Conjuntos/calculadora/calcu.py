@@ -2,7 +2,7 @@ import string
 import math as mt
 import numpy as np
 from datetime import datetime
-from operations import *
+#import operadorconjuntos
 
 def presentacion():
 	presentacion = "Calculadora de Conjuntos"
@@ -14,18 +14,18 @@ def presentacion():
 
 def main():
 	presentacion()
-	while True:
-		n = input()
-		print(list(n.split(' ')))
-
-
-
-
-if __name__ == "__main__":
+	line = 0 
 	try:
-		main()
+		while True:
+			print("{}:]".format(line+1), end=" ")
+			line += 1
+			n = input()
+			ans = list( n.split(' '))
+			print("\n",list(n.split(' ')))
+			print()
 	except KeyboardInterrupt:
-		print("Saliendo")
+		print("\nSaliendo")
+
 
 
 

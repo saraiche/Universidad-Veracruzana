@@ -9,8 +9,10 @@ pip3 install -r requeriments.txt
 # Instalacion de la calculadora, y creacion del alias.
 pip3 install --user . && echo "alias conjuntos=/home/$USER/.local/bin/conjuntos" >> ~/.bash_aliases
 #actualizando la terminal
-sudo source ~/.bash_aliases
+source ~/.bash_aliases
 #limpiando
-clear 
 #imprimiendo	
 echo "Instalacion terminada, para usar escribe 'conjuntos' en tu terminal"
+read -s -n 1 -p "Oprime enter"
+clear
+

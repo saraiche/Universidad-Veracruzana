@@ -1,4 +1,3 @@
-
 #Funciones principales o madres 
 #cardinalidad
 def cardinalidad(a):
