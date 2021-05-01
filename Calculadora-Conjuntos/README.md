@@ -14,6 +14,10 @@ Se trata de una simple calculadora de conjuntos hecha en python que te permite h
 | `Potencia`          | `pot`		   |
 
 # Instalacion 
+<p align="Center"> 
+para sistemas Linux y Mac 
+</p>
+
 1. Clonar el repositorio 
 ```bash 
 git clone https://github.com/JosepHyv/Universidad-Veracruzana 
