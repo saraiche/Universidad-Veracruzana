@@ -15,7 +15,7 @@ Se trata de una simple calculadora de conjuntos hecha en python que te permite h
 
 # Instalacion 
 <p align="justify"> 
-para sistemas Linux y Mac 
+<b>para sistemas Linux y Mac </b>
 </p>
 
 1. Clonar el repositorio 
@@ -34,5 +34,11 @@ chmod a+x install.sh
 ```bash
 ./install.sh
 ``` 
+
+<p align="justify">
+<b> Para windows </b> 
+</p>
+1. Descargar el ejecutable en [aqui]("http://www.google.com").
+
 
 
