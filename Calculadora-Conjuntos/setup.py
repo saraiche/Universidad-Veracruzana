@@ -12,6 +12,7 @@ setup(
         "datetime",
         "setuptools"
     ],
+    
     include_package_data = True,
     python_requires=">=3.7",
     classifiers=[
