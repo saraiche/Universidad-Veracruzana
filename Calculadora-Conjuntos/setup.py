@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="Calculadora de Conjuntos",
-    packages=["calculadora"],
+    packages=["calculadora","calculadora/operations"],
     entry_points={
         "console_scripts": ["conjuntos=calculadora.calcu:main"]
     },

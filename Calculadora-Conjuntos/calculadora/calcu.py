@@ -2,7 +2,7 @@ import string
 import math as mt
 import numpy as np
 from datetime import datetime
-#import operadorconjuntos
+from .operations.conjunto import *
 
 def presentacion():
 	presentacion = "Calculadora de Conjuntos"
@@ -27,5 +27,6 @@ def main():
 		print("\nSaliendo")
 
 
-
+if __name__ == "__main__":
+	main()
 
