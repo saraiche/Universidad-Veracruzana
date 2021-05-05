@@ -9,7 +9,7 @@ import operations.conjunto as opers  # <- esto es para testear
 
 diccionario = {}
 data = []
-operadores = ["card", "uni", "int", "dif", "prod", "pot"]
+operadores = ["card", "uni", "int", "dif", "prod", "pot","="]
 
 #========================================
 
@@ -42,10 +42,10 @@ def validar( entrada ):
 	if len(entrada) == 0:
 		return False
 	if len(entrada) == 1:
-		if entrada[0] == '' or entrada[0] == ' ':
-			return False
-	if '' in entrada:
 		return False
+	if '' in entrada:
+		if entrada[len(entrada)-1] != '':
+			return False
 	if ' ' in entrada:
 		return False
 	if not isSet(entrada[0]):
@@ -80,31 +80,45 @@ def validar( entrada ):
 			aux = aux.split(',')
 			if '' in aux:
 				return False
+
+	if not isSet(entrada[0]):
+		if entrada[0] in operadores:
+			return False
+		if not entrada[0] in string.ascii_uppercase.strip():
+			return False
+
+	if entrada.count(operadores) >= 3:
+		#print( entrada.count(operadores) )
+		return False
+
+	for c in entrada:
+		if not ( isSet(c) or c in operadores or c in string.ascii_uppercase.strip()):
+				return False
+	if entrada[len(entrada)-1] in operadores or entrada[len(entrada)-1] in string.ascii_uppercase.strip():
+		return False
+
+	for c in range(0,len(entrada)-1):
+		letras = string.ascii_uppercase.strip()
+		if isSet(entrada[c]) and isSet(entrada[c+1]):
+			return False
+		if entrada[c] in operadores and entrada[c+1] in operadores:
+			return False
+		if entrada[c] in letras and entrada[c+1] in letras:
+			return False
+		if (entrada[c] in letras  and isSet(entrada[c+1])) or ( isSet(entrada[c]) and entrada[c+1] in letras) or ( entrada[c] in letras and entrada[c+1] in letras):
+			return False
+
 	if ok:
 		return True
 	##print("Dentro de validar", *invalidos)
 
 	
 
-def analizar(linea):
-	mayusculas = string.ascii_uppercase
-	temporal = []
-	ok1 = False
-	nuevas = {}
-	for c in linea:
-		if c in mayusculas:
-			if c in diccionario:
-				temporal.append(diccionario[c])
-				ok = True
-			else:
-				break
 
 
-	return  temporal
-
-def construye(arr):
+def construye(coso):
 	ans = []
-	for c in arr:
+	for c in coso:
 		if isSet(c):
 			aux = c
 			aux = aux[1:len(aux)-1]
@@ -143,12 +157,14 @@ def main():
 			line += 1
 			n = input()
 			array = list( n.split(' '))
-			#print("el arreglo quedo -> ", array)
+			print("el arreglo quedo -> ", array)
 			if len(array) > 5 or not validar(array):
 				print("\nExpresion Invalida")
 			else:
-				#ans = solucionar()
-				print("\n",*construye(array))
+				array = construye(array)
+				array = array[::-1]
+				stack = []
+				print("\n",*array)
 			print()
 
 	except KeyboardInterrupt:
