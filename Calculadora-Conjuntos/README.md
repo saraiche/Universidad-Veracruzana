@@ -41,7 +41,7 @@ chmod a+x install.sh
 
 1. Descargar el paquete desde.
 
-![aqui]("http://www.google.com").
+[aqui]("http://www.google.com").
 
 2. Ve a la carpeta en donde se descargo el archivo
 3. selecciona con el raton el archivo descargado recientemente
