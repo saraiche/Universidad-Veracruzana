@@ -40,8 +40,7 @@ def validar( entrada ):
 	separado = [ ',' , '{' , '}' ]
 	minusculas = string.ascii_lowercase
 	if len(entrada) == 0:
-		return False
-	if len(entrada) == 1:
+		print("longitud")
 		return False
 	if '' in entrada:
 		if entrada[len(entrada)-1] != '':
@@ -49,11 +48,22 @@ def validar( entrada ):
 	if ' ' in entrada:
 		return False
 	if not isSet(entrada[0]):
-		if not entrada[0] in string.ascii_uppercase.strip():
+		if not entrada[0] in string.ascii_uppercase.strip() and ( entrada[0] != 'pot' and entrada[0] != 'card' ):
+			print("problema en el primer elemento")
+			return False
+	if len(entrada) == 2:
+		if entrada[0] == 'pot' or entrada[0] == 'card':
+			if isSet(entrada[1]) or entrada[1] in string.ascii_uppercase.strip():
+				return True
+			else:
+				return False
+		else: 
 			return False
 	aux = entrada[0].lower()
 	if aux in operadores:
-		return False
+		if ( aux != 'pot' and aux != 'card'):
+			print("evalua el primer elemento operador")
+			return False
 
 	for c in entrada:
 		if c == '' or c == ' ':
@@ -63,7 +73,9 @@ def validar( entrada ):
 			if d in invalidos:
 				#print("encontre un invalido", invalidos)
 				return False
-
+	if len(entrada) == 1:
+		if entrada[0] in string.ascii_uppercase.strip():
+			return True
 	ok = True
 	for c in entrada:
 		if c.count("=") > 1:
@@ -85,6 +97,7 @@ def validar( entrada ):
 		if entrada[0] in operadores:
 			return False
 		if not entrada[0] in string.ascii_uppercase.strip():
+			print("checa si es una letra entra si no lo es ")
 			return False
 
 	if entrada.count(operadores) >= 3:
@@ -94,7 +107,7 @@ def validar( entrada ):
 	for c in entrada:
 		if not ( isSet(c) or c in operadores or c in string.ascii_uppercase.strip()):
 				return False
-	if entrada[len(entrada)-1] in operadores or entrada[len(entrada)-1] in string.ascii_uppercase.strip():
+	if entrada[len(entrada)-1] in operadores:# or entrada[len(entrada)-1] in string.ascii_uppercase.strip():
 		return False
 
 	for c in range(0,len(entrada)-1):
@@ -102,12 +115,22 @@ def validar( entrada ):
 		if isSet(entrada[c]) and isSet(entrada[c+1]):
 			return False
 		if entrada[c] in operadores and entrada[c+1] in operadores:
-			return False
+			#print("es mi culpa")
+			if (entrada[c] == '=' and (entrada[c+1] != 'pot' and entrada[c+1] != 'card')):
+			#	print( (entrada[c] == '=' and (entrada[c+1] != 'pot' and entrada[c+1] != 'card') ))
+				return False
 		if entrada[c] in letras and entrada[c+1] in letras:
 			return False
 		if (entrada[c] in letras  and isSet(entrada[c+1])) or ( isSet(entrada[c]) and entrada[c+1] in letras) or ( entrada[c] in letras and entrada[c+1] in letras):
 			return False
 
+	for c in range(1,len(entrada)-1):
+		if entrada[c] == 'card' or entrada[c] == 'pot':
+			if isSet(entrada[c-1]) and isSet(entrada[c+1]):
+				return False
+	if len(entrada) == 3:
+		if 'card' in entrada or 'pot' in entrada:
+			return False
 	if ok:
 		return True
 	##print("Dentro de validar", *invalidos)
@@ -143,9 +166,71 @@ def construye(coso):
 			ans.append(c)
 	return ans
 
+def memoria(a):
+	letras = string.ascii_uppercase.strip()
+	aux = type(a)
+	if aux == type(set()):
+		return a
+	if a in diccionario:
+		return diccionario[a]
+	else:
+		return set()
 
-def solucionar():
-	return [1,2]
+def solucionar(contenedor):
+	ans = []
+	if len(contenedor) == 1:
+		if contenedor[0] in diccionario:
+			return [diccionario[contenedor[0]]]
+		else:
+			return [set()]
+	if len(contenedor) == 2:
+		if contenedor[1] == 'pot':
+			aux = memoria(contenedor[0])
+			return [opers.potencia(aux)]
+		elif contenedor[1] == 'card':
+			aux = memoria(contenedor[0])
+			return [opers.cardinalidad(aux)]
+
+	if len(contenedor) == 3:
+		if contenedor[1] == 'uni':
+			aux = memoria(contenedor[0])
+			aux2 = memoria(contenedor[2])
+			return [opers.uniones(aux,aux2)]
+
+		elif contenedor[1] == 'int':
+			aux = memoria(contenedor[0])
+			aux2 = memoria(contenedor[2])
+			return [opers.intersec(aux,aux2)]
+		elif contenedor[1] == 'dif':
+			aux = memoria(contenedor[0])
+			aux2 = memoria(contenedor[2])
+			return [opers.diferencia(aux,aux2)]
+		elif contenedor[1] == 'prod':
+			aux = memoria(contenedor[0])
+			aux2 = memoria(contenedor[2])
+			return [opers.cartecian(aux,aux2)]
+		elif contenedor[1] == '=':
+			diccionario[contenedor[2]] = memoria(contenedor[0])
+			aux = diccionario[contenedor[2]]
+			return [aux]
+	if len(contenedor) == 4:
+		if( contenedor[1] == 'pot'):
+			aux = memoria(contenedor[0])
+			diccionario[contenedor[3]] = opers.potencia(aux)
+			aux = diccionario[contenedor[3]]
+			return [aux]
+		if contenedor[1] == 'card':
+			aux = memoria(contenedor[0])
+			diccionario[contenedor[3]] = opers.cardinalidad(aux)
+			aux = diccionario[contenedor[3]]
+			return [aux]
+
+	if len(contenedor) == 5:
+		return ["no puede ser"]
+	return ["error interno"]
+
+
+
 
 def main():
 	presentacion()
@@ -157,14 +242,16 @@ def main():
 			line += 1
 			n = input()
 			array = list( n.split(' '))
-			print("el arreglo quedo -> ", array)
+			if '' in array:
+				array.remove('')
+			#print("el arreglo quedo -> ", array)
 			if len(array) > 5 or not validar(array):
 				print("\nExpresion Invalida")
 			else:
 				array = construye(array)
 				array = array[::-1]
-				stack = []
-				print("\n",*array)
+				ans = solucionar(array)
+				print("\n", *ans)
 			print()
 
 	except KeyboardInterrupt:
