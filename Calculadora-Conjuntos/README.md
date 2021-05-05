@@ -38,7 +38,11 @@ chmod a+x install.sh
 <p align="justify">
 <b> Para windows </b> 
 </p>
-1. Descargar el paquete desde ![aqui]("http://www.google.com").
+
+1. Descargar el paquete desde.
+
+![aqui]("http://www.google.com").
+
 2. Ve a la carpeta en donde se descargo el archivo
 3. selecciona con el raton el archivo descargado recientemente
 4. da click derecho y selecciona la opcion extraer aqui
