@@ -2,8 +2,8 @@ import string
 import math as mt
 import numpy as np
 from datetime import datetime
-#from .operations.conjunto import *  # <- instalar
-import operations.conjunto as opers  # <- esto es para testear 
+from .operations.conjunto import *  # <- instalar
+#import operations.conjunto as opers  # <- esto es para testear 
 
 #========================================
 
@@ -186,29 +186,29 @@ def solucionar(contenedor):
 	if len(contenedor) == 2:
 		if contenedor[1] == 'pot':
 			aux = memoria(contenedor[0])
-			return [opers.potencia(aux)]
+			return [potencia(aux)]
 		elif contenedor[1] == 'card':
 			aux = memoria(contenedor[0])
-			return [opers.cardinalidad(aux)]
+			return [cardinalidad(aux)]
 
 	if len(contenedor) == 3:
 		if contenedor[1] == 'uni':
 			aux = memoria(contenedor[0])
 			aux2 = memoria(contenedor[2])
-			return [opers.uniones(aux,aux2)]
+			return [uniones(aux,aux2)]
 
 		elif contenedor[1] == 'int':
 			aux = memoria(contenedor[0])
 			aux2 = memoria(contenedor[2])
-			return [opers.intersec(aux,aux2)]
+			return [intersec(aux,aux2)]
 		elif contenedor[1] == 'dif':
 			aux = memoria(contenedor[0])
 			aux2 = memoria(contenedor[2])
-			return [opers.diferencia(aux,aux2)]
+			return [diferencia(aux,aux2)]
 		elif contenedor[1] == 'prod':
 			aux = memoria(contenedor[0])
 			aux2 = memoria(contenedor[2])
-			return [opers.cartecian(aux,aux2)]
+			return [cartecian(aux,aux2)]
 		elif contenedor[1] == '=':
 			diccionario[contenedor[2]] = memoria(contenedor[0])
 			aux = diccionario[contenedor[2]]
@@ -216,17 +216,37 @@ def solucionar(contenedor):
 	if len(contenedor) == 4:
 		if( contenedor[1] == 'pot'):
 			aux = memoria(contenedor[0])
-			diccionario[contenedor[3]] = opers.potencia(aux)
+			diccionario[contenedor[3]] = potencia(aux)
 			aux = diccionario[contenedor[3]]
 			return [aux]
 		if contenedor[1] == 'card':
 			aux = memoria(contenedor[0])
-			diccionario[contenedor[3]] = opers.cardinalidad(aux)
+			diccionario[contenedor[3]] = cardinalidad(aux)
 			aux = diccionario[contenedor[3]]
 			return [aux]
 
 	if len(contenedor) == 5:
-		return ["no puede ser"]
+		temporal = memoria(contenedor[0])
+		for c in range(1,len(contenedor)-1,2):
+			if contenedor[c] == 'uni':
+				aux = memoria(contenedor[c+1])
+				temporal = uniones(temporal,aux)
+			elif contenedor[c] == 'int':
+				aux = memoria(contenedor[c+1])
+				temporal = intersec(temporal,aux)
+
+			elif contenedor[c] == 'dif':
+				aux = memoria(contenedor[c+1])
+				temporal = diferencia(temporal,aux)
+
+			elif contenedor[c] == 'prod':
+				aux = memoria(contenedor[c+1])
+				temporal = cartecian(temporal,aux)
+
+			elif contenedor[c] == '=':
+				diccionario[contenedor[c+1]] = temporal
+		return [temporal]
+
 	return ["error interno"]
 
 
