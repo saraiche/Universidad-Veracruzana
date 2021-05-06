@@ -50,4 +50,4 @@ chmod a+x install.sh
 5. crea un acceso directo al ejecutable, y usalo.
 
 
-[1]: "http://www.google.com"
+[1]: "https://drive.google.com/file/d/1uhCTN29dUHgA28vWBJJOVb1jmDduspM3/view?usp=sharing"
