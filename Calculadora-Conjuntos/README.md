@@ -41,7 +41,7 @@ chmod a+x install.sh
 
 1. Descargar el paquete desde.
 
-![Descargar Archivos][1]
+[![Descargar Archivos]https://drive.google.com/file/d/1uhCTN29dUHgA28vWBJJOVb1jmDduspM3/view?usp=sharing]
 
 2. Ve a la carpeta en donde se descargo el archivo
 3. selecciona con el raton el archivo descargado recientemente
@@ -50,4 +50,4 @@ chmod a+x install.sh
 5. crea un acceso directo al ejecutable, y usalo.
 
 
-[1]: "https://drive.google.com/file/d/1uhCTN29dUHgA28vWBJJOVb1jmDduspM3/view?usp=sharing"
+ 
