@@ -47,7 +47,12 @@ chmod a+x install.sh
 3. selecciona con el raton el archivo descargado recientemente
 4. da click derecho y selecciona la opcion extraer aqui
 <b> ( se recomienda el uso de software como WinRar o 7zip) </b>
-5. crea un acceso directo al ejecutable, y usalo.
+5. da doble click en el archivo llamado <b> instalador.exe </b>
+6. en la ventana de extraccion selecciona la ruta de extraccion
+7. una vez extraido dirigete al directorio que seleccionaste para la extraccion
+8. busca el archivo llamado calcu.exe 
+9. da click derecho sobre el y crea un acceso directo al escritorio
+10. ve al escritiorio y da doble click sobre el acceso directo y usa la calculadora
 
 
  
