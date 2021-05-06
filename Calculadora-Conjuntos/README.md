@@ -41,7 +41,7 @@ chmod a+x install.sh
 
 1. Descargar el paquete desde.
 
-<a href="https://drive.google.com/file/d/1uhCTN29dUHgA28vWBJJOVb1jmDduspM3/view?usp=sharing]"> Descargar Archivos </a>
+<a href="https://drive.google.com/file/d/1uhCTN29dUHgA28vWBJJOVb1jmDduspM3/view?usp=sharing]" target="_blank"> Descargar Archivos </a>
 
 2. Ve a la carpeta en donde se descargo el archivo
 3. selecciona con el raton el archivo descargado recientemente
