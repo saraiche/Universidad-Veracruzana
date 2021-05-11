@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="Calculadora de Conjuntos",
-    autor="Joseph Hynimoto Aguilar Lopez",
+    author="Joseph Hynimoto Aguilar Lopez",
     packages=["calculadora","calculadora/operations"],
     entry_points={
         "console_scripts": ["conjuntos=calculadora.calcu:main"]
