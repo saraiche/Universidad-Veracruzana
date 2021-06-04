@@ -5,6 +5,7 @@ public class Profesor{
 	private Academia academia;
 	//private Curso [] curso = new Curso[5];
 	private String [] curso = new String[5];
+	// esto puede cambiar	
 	private int numCurso = 0;
 
 	public Profesor(){
