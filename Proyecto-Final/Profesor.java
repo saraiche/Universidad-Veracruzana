@@ -3,9 +3,8 @@ public class Profesor{
 	private String nombre;
 	private String tipoDeContratacion;
 	private Academia academia;
-	//private Curso [] curso = new Curso[5];
-	private String [] curso = new String[5];
-	// esto puede cambiar	
+	private Curso [] curso = new Curso[5];
+	//private String [] curso = new String[5];
 	private int numCurso = 0;
 
 	public Profesor(){
@@ -49,15 +48,21 @@ public class Profesor{
 		return academia;
 	}
 
-	public void addCurso(String c){
+	public void addCurso(Curso c){
 		if (numCurso<5){
 			this.curso[numCurso] = c;
 			numCurso++;
 		}
 	}
 
-	public String getCurso(int i)
+	public Curso getCurso(int i)
 	{
 		return curso[i];
+	}
+
+	/// added getNumCurso()
+	public int getNumCurso()
+	{
+		return this.numCurso;
 	}
 }

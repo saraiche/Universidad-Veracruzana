@@ -40,6 +40,7 @@ public class Curso{
 	}
 
 	public void addDocente(Profesor doc){
+		this.docente = doc;
 		
 	}
 
@@ -59,5 +60,11 @@ public class Curso{
 
 	public Estudiante getAlumno(int a){
 		return alumno[a];
+	}
+
+	/// added getDocente()
+	public Profesor getDocente()
+	{
+		return this.docente;
 	}
 }

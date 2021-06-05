@@ -1,8 +1,8 @@
 public class Academia{
 	private String nombre;
 	private Profesor coordinador;
-	private ExperienciaE [] ee = new ExperienciaEducativa[3];
-	private numExperiencia = 0;
+	private ExperienciaEducativa [] ee = new ExperienciaEducativa[3];
+	private int numExperiencia = 0;
 	
 	public Academia(){
 	}
@@ -12,7 +12,7 @@ public class Academia{
 	}
 
 	public Academia(String nombre, Profesor coor){
-		this.nombre = nomb;
+		this.nombre = nombre;
 		this.coordinador = coor;
 	}
 
@@ -30,19 +30,19 @@ public class Academia{
 	}
 
 
-	public String getCoordinador(){
+	public Profesor getCoordinador(){
 		return coordinador;
 	}
 
-	public void addExperiencia(ExperienciaE ee){
+	public void addExperiencia(ExperienciaEducativa ee){
 		if (numExperiencia<4){
 			this.ee[numExperiencia] = ee;
-			numExperiencia++
+			numExperiencia++;
 		} else
 			System.out.println("No hay capacidad para más experiencias educativas");
 	}
 
-	public ExperienciaE getEE(int i){
+	public ExperienciaEducativa getEE(int i){
 		return ee[i];
 	}
 
