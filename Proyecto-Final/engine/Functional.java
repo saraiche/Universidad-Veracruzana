@@ -33,7 +33,7 @@ public class Functional
 	// recibe una clase ( Academia, profesor o estudiante)
 	/// y los inserta respectivamente
 	/// Complejidad de Insert O(N)
-	public void insert( Template  x )
+	public void insert( Template  x ) //add
 	{
 		if( x instanceof Academia)
 		{
@@ -74,13 +74,14 @@ public class Functional
 	// complejidad O(2*n) = O(n)
 	public void remove(Template x)
 	{
-		int tam = (x instanceof Academia ? this.it1 : ( x instanceof Profesor ? this.it2 : this.it3));
+		int tam = (x instanceof Academia ? this.it1 : ( x instanceof Profesor ? this.it2 : this.it3)); //khee
 		int pos = 0;
 		if( x instanceof Academia ) pos = find(x.getNombre(),this.academy , tam);
 		else if( x instanceof Profesor) pos = find(x.getNombre(), this.teacher, tam);
 		else pos = find(x.getNombre(), this.student, tam);
 		
 		if( pos == -1)
+			//podriamos imprimir "Error, no se encontró"
 			return;
 
 		if( x instanceof Academia)
@@ -118,7 +119,7 @@ public class Functional
 		return this.student[a];
 	}
 
-	public int sizeAcademia()
+	public int sizeAcademia() //numAcademia
 	{
 		return this.it1;
 	}
