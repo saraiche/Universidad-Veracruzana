@@ -23,6 +23,11 @@ public class Curso{
 		this.seccion = seccion;
 	}
 
+	public void setBloque(int a)
+	{
+		this.bloque = a;
+	}
+
 	public void setNombre(String a)
 	{
 		this.nombre = a;
@@ -33,16 +38,16 @@ public class Curso{
 		return this.nombre;
 	}
 
-	public void setNrc(){
-		this.nrc = nrc;
+	public void setNrc(String a ){
+		this.nrc = a;
 	}
 
 	public void setBloque(){
 		this.bloque = bloque;
 	}
 
-	public void setSeccion(){
-		this.seccion = seccion;
+	public void setSeccion(int a){
+		this.seccion = a;
 	}
 
 	public String getNrc(){
@@ -90,7 +95,7 @@ public class Curso{
 	public String toString()
 	{
 
-		String ans = "Curso: " + this.nombre + "\n";
+		String ans = "\n\tCurso\n\t" + this.nombre + "\n";
 		ans += "Bloque: " + String.valueOf((int)this.bloque) + "\n";
 		ans += "Seccion: " + String.valueOf((int)this.seccion) + "\n";
 		ans += "Docente: " + this.docente + "\n";
