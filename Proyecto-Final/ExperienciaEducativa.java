@@ -1,16 +1,28 @@
 public class ExperienciaEducativa{
+	private String nombre;
 	private String clave;
-	private int totalDeCreditos;
-	//private Curso[] curso = new Curso[1]; /// aqui puede haber más de uno ? 
-	private Curso curso;
-	///private int numCurso = 0; nno es necesario si solo hay 1 
+	private int totalDeCreditos; //// verificar los creditos 
+	private Curso[] curso = new Curso[5]; /// aqui puede haber más de uno ? 
+	//private Curso curso;
+	private int numCurso = 0; 
 
 	public ExperienciaEducativa(){
 	}
 
-	public ExperienciaEducativa(String c, int tC){
+	public ExperienciaEducativa(String nom, String c, int tC){
+		this.nombre = nom;
 		this.clave = c;
 		this.totalDeCreditos = tC;
+	}
+
+	public void setNombre(String a )
+	{
+		this.nombre = a;
+	}
+
+	public String getNombre()
+	{
+		return this.nombre;
 	}
 
 	public void setClave(String c){
@@ -30,22 +42,35 @@ public class ExperienciaEducativa{
 	}
 
 	public void addCurso(Curso c){
-		/*if (numCurso<2){
+		if (numCurso<5){
 			this.curso[numCurso] = c;
 			numCurso++;
 		}
-		*/
-		this.curso = c;
+		
 	}
 
 	// added get curso 
-	public Curso getCurso()
+	public Curso getCurso(int a)
 	{
-		return this.curso;
+		return this.curso[a];
 	}
-	/*
-	no es necesario si solo hay 1 
+	
+	
 	public int getNumCurso(){
-		return numCurso;
-	}*/
+		return this.numCurso;
+	}
+
+	public String toString()
+	{
+		// hacer algo
+
+		String ans = "\tExperiencia Educativa\n\t" + this.nombre + "\n";
+		ans += "Clave: " + this.clave + "\n";
+		ans += "Creditos: " + String.valueOf(this.totalDeCreditos) + "\n";
+		ans += "Numero de Cursos: " + String.valueOf(this.numCurso) + "\n";
+		for(int c = 0; c<this.numCurso; c++)
+			ans += curso[c];
+		return ans;
+
+	}
 }
