@@ -1,4 +1,6 @@
-public class Academia{
+package resources; // lo empaquetamos 
+
+public class Academia extends Template {
 	private String nombre;
 	private Profesor coordinador;
 	private ExperienciaEducativa [] ee = new ExperienciaEducativa[3];
@@ -39,11 +41,25 @@ public class Academia{
 			this.ee[numExperiencia] = ee;
 			numExperiencia++;
 		} else
-			System.out.println("No hay capacidad para más experiencias educativas");
+			System.err.println("No hay capacidad para más experiencias educativas");
 	}
 
 	public ExperienciaEducativa getEE(int i){
 		return ee[i];
+	}
+
+	//// ======== Academia tiene toString =======
+	public String toString()
+	{
+		String ans = "\tAcademia\n";
+		ans += "Nombre: " + this.nombre + "\n";
+		ans += "Coordinador : " + this.coordinador + "\n";
+		ans += "\nExperiencias: " + String.valueOf(this.numExperiencia) +"\n";
+		for(int c = 0 ; c<this.numExperiencia; c++)
+			ans += this.ee[c];
+		return ans;
+
+
 	}
 
 }

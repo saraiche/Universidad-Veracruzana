@@ -1,4 +1,6 @@
-public class Curso{
+package resources; // lo empaquetamos 
+
+public class Curso extends Template {
 
 	private String nombre;
 	private String nrc;
@@ -73,7 +75,7 @@ public class Curso{
 			numAlumno++;
 		}
 		else
-			System.out.println("No hay capacidad para más alumnos");
+			System.err.println("No hay capacidad para más alumnos");
 	}
 	
 

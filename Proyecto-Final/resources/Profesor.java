@@ -1,16 +1,19 @@
-public class Profesor{
+package resources; // lo empaquetamos 
+
+public class Profesor extends Template{
 	private String numeroDePersonal;
 	private String nombre;
 	private String tipoDeContratacion;
 	private Academia academia;
-	private Curso [] curso = new Curso[5];
-	//private String [] curso = new String[5];
+	//private Curso [] curso = new Curso[5];
+	private String [] curso = new String[5]; //solo nos intersa el nrc
+
 	private int numCurso = 0;
 
 	public Profesor(){
 	}
 
-	public Profesor(String num, String nomb, String contra){
+	public Profesor( String nomb, String num, String contra){
 		this.numeroDePersonal = num;
 		this.nombre = nomb;
 		this.tipoDeContratacion = contra;
@@ -22,7 +25,7 @@ public class Profesor{
 
 	public String getNombre(){
 		return nombre;
-	}
+	}  
 
 	public String getTipoDeContratacion(){
 		return tipoDeContratacion;
@@ -48,14 +51,19 @@ public class Profesor{
 		return academia;
 	}
 
-	public void addCurso(Curso c){
+	public void addCurso(String  nrc){
 		if (numCurso<5){
-			this.curso[numCurso] = c;
+			this.curso[numCurso] = nrc;
 			numCurso++;
 		}
+		else
+		{
+			System.err.println("Error en el espacio");
+			return;
+		}
 	}
-
-	public Curso getCurso(int i)
+	/// public Curso
+	public String getCurso(int i)
 	{
 		return curso[i];
 	}
@@ -64,5 +72,19 @@ public class Profesor{
 	public int getNumCurso()
 	{
 		return this.numCurso;
+	}
+
+	///======= Profesor tiene toString ==========
+	public String toString()
+	{
+		String ans = "\n\tProfesor\n";
+		ans += "Nombre: " + this.nombre + "\n";
+		ans += "Numero Personal: " + this.numeroDePersonal + "\n";
+		ans += "Contratacion: " + this.tipoDeContratacion + "\n";
+		ans += "\tCursos\n";
+		for(int c = 0 ; c<this.numCurso; c++)
+			ans += curso[c] + "\n";
+		return ans;
+
 	}
 }

@@ -1,4 +1,6 @@
-public class ExperienciaEducativa{
+package resources; // lo empaquetamos 
+
+public class ExperienciaEducativa extends Template {
 	private String nombre;
 	private String clave;
 	private int totalDeCreditos; //// verificar los creditos 
@@ -45,6 +47,11 @@ public class ExperienciaEducativa{
 		if (numCurso<5){
 			this.curso[numCurso] = c;
 			numCurso++;
+		}
+		else 
+		{
+			System.err.println("Error en el espacio");
+			return;
 		}
 		
 	}
